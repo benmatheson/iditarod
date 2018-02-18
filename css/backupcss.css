@@ -62,7 +62,7 @@ font-weight: 300;
 
 a {
 
-text-decoration: underline;
+text-decoration: : underline;
 color: black;
 
 }
@@ -201,44 +201,6 @@ opacity: .8;
 font-size: 2rem;
 }
 
-#replay{
-
-background-color: white;
-padding:.5%;
-    position: absolute;
-    left: 50%;
-    top: 70%;
-    border: solid lightgray .5px;
-    border-radius: 7px;
-    font-style: italic;
-      font-family: "Nunito Sans", sans-serif;
-font-size: .9rem;
-opacity: 0;
-
-animation: butt;
-    animation-duration: 1s;
-    animation-delay: 4s;
-animation-fill-mode: forwards;
-
-}
-
-#replay:hover {
-
-    padding:.9%;
-font-size: 1.2rem;
-
-}
-
-@keyframes butt {
-
-from{opacity: 0;}
-
-to {opacity: 1;}
-
-}
-
-
-
 
 .smContainer{
 
@@ -249,15 +211,13 @@ justify-content: space-between;
 align-items: stretch;
 
     }
-
-
-/*
+}
 #vis2Small{
 
 border: red dashed;
 min-width: 300px;
 
-    }*/
+    }
 
 
 .footer {
@@ -268,11 +228,4 @@ width: 80%;
 
 
 
-img{
-
-width: 100%;
-height: auto;
-/*margin: auto;*/
-
-}
 

@@ -19,15 +19,18 @@ const margin = {
 }
 
 
-const vis1svg = d3.select('#vis1')
+
+
+function executeVis1 () {
+	d3.select("svg").remove();
+
+	const vis1svg = d3.select('#vis1')
 .append("svg")
 .attr("width", width-margin.top-margin.bottom)
 .attr("height", height-margin.top-margin.bottom)
 
-function executeVis1 () {
-
 let step =1;
-
+console.log("EDTUETINGINETEN VIS @!1");
 
 var start = setInterval(cycleTime, 18.52);
 
@@ -325,12 +328,12 @@ var circ2 = vis1g
 circ2.transition()
   .duration((d,i)=> d.duration/50)
   .attr("cx", width-100)
+transition()
 
   // .attr("r",4)
 .ease(d3.easeLinear)
 .delay((d,i)=> 100)
 
-transition()
   .duration((d,i)=> i*3)
   .attr("cy", (d,i)=> (i*3)+450)
 
@@ -358,6 +361,8 @@ var vis2svg = d3.select('#vis2')
 .attr("width", width-margin.top-margin.bottom)
 .attr("height", height-margin.top-margin.bottom-400)
 .attr('transform', 'translate(20,0)rotate(0)')
+
+
 
 
 var vis2Smallsvg = d3.select('#vis2Small')
@@ -612,7 +617,8 @@ vis2svg.append('text')
 
 
 // console.log(scrollmagic);
-console.log("scrollmagic");
+
+
 d3.csv("data/eliteTrans0.csv", function(data2) {
 
 // console.log(data2);
@@ -1116,18 +1122,18 @@ var lineGraph3 = vis2svg.append("path")
 
 
 
+console.log(vis2svg);
+console.log(lineGraph7);
 
 
 })
 
 
 
-
-
-var vis3svg = d3.select('#vis3')
-.append("svg")
-.attr("width", width-margin.top-margin.bottom)
-.attr("height", height-margin.top-margin.bottom)
+// var vis3svg = d3.select('#vis3')
+// .append("svg")
+// .attr("width", width-margin.top-margin.bottom)
+// .attr("height", height-margin.top-margin.bottom)
 
 d3.csv("data/careersSum.csv", function(data3) {
 
