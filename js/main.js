@@ -74,7 +74,7 @@ var diff = moment.preciseDiff(m1, added);
 
 
 
-d3.csv("/data/win_time.csv", function(dat) {
+d3.csv("data/win_time.csv", function(dat) {
 
 // console.log(dat)
 
