@@ -257,6 +257,7 @@ display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
 align-items: stretch;
+margin-top: 2%;
 
     }
 
@@ -306,20 +307,37 @@ height: auto;
 
 #visTool {
 
-height: 50px;
-width: 26%;
+height: 40px;
+width: 22%;
 margin:auto;
 border: dashed lightgray 1px;
-padding: 2%;
- /*position: absolute;*/
- left: 50%;
-top: 50%;
+padding: 1%;
+ position: absolute;
+
+/* left: 50%;
+top: 50%;*/
 z-index: 99;
-margin-top: -18%;
-margin-bottom: 40%;
+/*margin-top: -18%;*/
+/*margin-bottom: 40%;*/
 font-family: "Nunito Sans", sans-serif;
 font-size: 1em;
 font-weight: 600;
+padding-bottom: 2%;
+background-color: white;
+opacity: .7;
+
+
+
+}
+
+.mediumImg {
+
+width: 70%;
+height: auto;
+margin:auto;
+display: block;
+margin-top: 1%;
+margin-bottom: 1%;
 
 
 }

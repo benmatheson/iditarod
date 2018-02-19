@@ -20,7 +20,9 @@ function executeVis1 () {
 	const vis1svg = d3.select('#vis1')
 .append("svg")
 .attr("width", width-margin.top-margin.bottom)
-.attr("height", height-margin.top-margin.bottom)
+.attr("height", 500)
+
+// height-margin.top-margin.bottom
 
 let step =1;
 console.log("EDTUETINGINETEN VIS @!1");
@@ -1259,11 +1261,15 @@ return Number.parseFloat(er).toFixed(2)
                   visTool.innerHTML = html1;
 
                  
-                 d3.select("#visTool")
+                 var visD3 = d3.select("div#visTool")
                  	// .style("left", ()=>d3.select(this).attr("cx"))
-                 	// .style("top", ()=>d3.select(this).attr("cy"));
-                 	  .attr("x", ()=>d3.select(this).attr("cx"))
-                 	.attr("y", ()=>d3.select(this).attr("cy"));
+                 	.style("top", ()=>(`${d3.event.pageY+10}px`))
+                 	// .style("display", "absolute")
+                 	 .style("left", ()=>(`${d3.event.pageX}px`))
+                 	  .transition()
+                      .duration(100) // ms
+                      .style("opacity", .9)
+                 	// .attr("y", ()=>d3.select(this).attr("cy"));
                   // tooltip1.innerHTML = html1;
                   // tooltip1.html = html1;
 
@@ -1296,9 +1302,18 @@ console.log(html1);
 
               // tooltip mouseout event handler
               var tipMouseout = function(d) {
-                  tooltip1.transition()
+
+
+              	var visD32 = d3.select("div#visTool")
+                 	// .style("left", ()=>d3.select(this).attr("cx"))
+                 	.style("top", ()=>(`${d3.event.pageY+10}px`))
+                 	// .style("display", "absolute")
+                 	 .style("left", ()=>(`${d3.event.pageX}px`));
+
+
+                  visD32.transition()
                       .duration(300) // ms
-                      .style("opacity", .6); 
+                      .style("opacity", 0); 
 
                       // d3.select(this).attr("fill", "black");
 
@@ -1326,10 +1341,10 @@ vis4svg.selectAll("circle")
 		.append('circle')
 		.attr("cx", d=>scaleScatterX(d.n))
 		.attr("cy", d=>scaleScatterY(d.mean))
-		.attr("r", 5)
-		.attr("fill", "black")
+		.attr("r", 6)
+		// .style("fill", "darkblue")
 		// .attr("stroke", "black")
-		.attr("fill", function(d) {if (d.name =="Jeff King" || d.name =="Martin Buser" || d.name =="Rick Swenson" || d.name =="Susan Butcher" || d.name =="Doug Swingley" || d.name =="Lance Mackey" || d.name =="Jeff King" || d.name =="Mitch Seavey"|| d.name =="Dallas Seavey" || d.name =="John Baker" || d.name =="Robert Sorilie" || d.name =="Joe Runyan" || d.name =="Libby Riddles"|| d.name =="Dean Osmar"|| d.name =="Rick Mackey"|| d.name =="Joe May"|| d.name =="Dick Mackey"|| d.name =="Gerald Riley"|| d.name =="Emmitt Peters"|| d.name =="Carl Huntington"|| d.name =="Dick Wilmarth"){return "darkblue"}})
+		.style("fill", function(d) {if (d.name =="Jeff King" || d.name =="Martin Buser" || d.name =="Rick Swenson" || d.name =="Susan Butcher" || d.name =="Doug Swingley" || d.name =="Lance Mackey" || d.name =="Jeff King" || d.name =="Mitch Seavey"|| d.name =="Dallas Seavey" || d.name =="John Baker" || d.name =="Robert Sorilie" || d.name =="Joe Runyan" || d.name =="Libby Riddles"|| d.name =="Dean Osmar"|| d.name =="Rick Mackey"|| d.name =="Joe May"|| d.name =="Dick Mackey"|| d.name =="Gerald Riley"|| d.name =="Emmitt Peters"|| d.name =="Carl Huntington"|| d.name =="Dick Wilmarth"){return "#FF5E08"} else return "#1AA3D3"})
 
 		.attr("opacity", .3)
 		.attr('transform', 'translate(30,20)rotate(0)')
@@ -1372,9 +1387,9 @@ vis4svgG.append('circle')
 	.text("↑Career Place Average ")
 	.attr("cx", scaleScatterX(15))
 	.attr("cy", scaleScatterY(72))   	
-	.attr("r", 5)   	
-	.attr("fill", "darkblue")   	
-	.attr("opacity", .3)   	
+	.attr("r", 8)   	
+	.attr("fill", "#FF5E08")   	
+	.attr("opacity", .4)   	
 
 
 vis4svg.selectAll("text")
