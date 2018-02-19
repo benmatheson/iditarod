@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -312,34 +305,34 @@ var select1 = vis1svg
 	.ease(d3.easeLinear)
 
 
-var circ2 = vis1g
-	.append("circle")
-	.attr("cx", 100)
-	  .attr("cy", 500)
-	  .attr("opacity", .2)
-// .attr("stroke", "black")
-.attr("fill", function(d){if (d.Year>1970 && d.Year <1980) {return "green"} else if (d.Year>1980 && d.Year <=1990)  {return "pink"} else if (d.Year>1990 && d.Year <=2000)  {return "yellow"} else if (d.Year>2000 && d.Year <=2010)  {return "orange"} else if (d.Year>2010 && d.Year <=2018)  {return "blue"}  })
-	.attr("r", 20)
+// var circ2 = vis1g
+// 	.append("circle")
+// 	.attr("cx", 100)
+// 	  .attr("cy", 500)
+// 	  .attr("opacity", .2)
+// // .attr("stroke", "black")
+// .attr("fill", function(d){if (d.Year>1970 && d.Year <1980) {return "green"} else if (d.Year>1980 && d.Year <=1990)  {return "pink"} else if (d.Year>1990 && d.Year <=2000)  {return "yellow"} else if (d.Year>2000 && d.Year <=2010)  {return "orange"} else if (d.Year>2010 && d.Year <=2018)  {return "blue"}  })
+// 	.attr("r", 20)
 
 
 
 
 
-circ2.transition()
-  .duration((d,i)=> d.duration/50)
-  .attr("cx", width-100)
-transition()
+// circ2.transition()
+//   .duration((d,i)=> d.duration/50)
+//   .attr("cx", width-100)
+// transition()
 
-  // .attr("r",4)
-.ease(d3.easeLinear)
-.delay((d,i)=> 100)
+//   // .attr("r",4)
+// .ease(d3.easeLinear)
+// .delay((d,i)=> 100)
 
-  .duration((d,i)=> i*3)
-  .attr("cy", (d,i)=> (i*3)+450)
+//   .duration((d,i)=> i*3)
+//   .attr("cy", (d,i)=> (i*3)+450)
 
-  // .attr("r",4)
-.ease(d3.easeLinear)
-.delay((d,i)=> 100)
+//   // .attr("r",4)
+// .ease(d3.easeLinear)
+// .delay((d,i)=> 100)
 
 
 
@@ -358,10 +351,16 @@ transition()
 
 var vis2svg = d3.select('#vis2')
 .append("svg")
-.attr("width", width-margin.top-margin.bottom)
-.attr("height", height-margin.top-margin.bottom-400)
-.attr('transform', 'translate(20,0)rotate(0)')
+.attr("width", 700 )
+.attr("height", 400);
+// .attr('transform', 'translate(20,0)rotate(0)');
 
+console.log("Vis2svg");
+console.log(vis2svg);
+
+console.log("making teh sbg");
+console.log(height-margin.top-margin.bottom-400)
+// width-margin.top-margin.bottom
 
 
 
@@ -370,6 +369,9 @@ var vis2Smallsvg = d3.select('#vis2Small')
 .attr("width", 300)
 .attr("height", 300)
 .attr("fill", "purple")
+
+console.log("Vis2svgsmall");
+console.log(vis2Smallsvg);
 
 var vis2Smallsvg2 = d3.select('#vis2Small2')
 .append("svg")
@@ -456,7 +458,7 @@ var axisDisplace;
 
 
 
-var adjust = 'translate(70,32)rotate(0)'
+var adjust = 'translate(70,32)rotate(0)';
 
 
 vis2svg.append('text')
@@ -1119,13 +1121,6 @@ var lineGraph3 = vis2svg.append("path")
 
 
 
-
-
-
-console.log(vis2svg);
-console.log(lineGraph7);
-
-
 })
 
 
@@ -1135,27 +1130,26 @@ console.log(lineGraph7);
 // .attr("width", width-margin.top-margin.bottom)
 // .attr("height", height-margin.top-margin.bottom)
 
-d3.csv("data/careersSum.csv", function(data3) {
+// d3.csv("data/careersSum.csv", function(data3) {
 
 
 
 
-// console.log(data3)
+// // console.log(data3)
 
-vis3svg.selectAll("circle")
-	.data(data3)
-	.enter()
-	.append("circle")
-	.attr("cx", 100)
-	.attr("cy", 100)
-	.attr("r", 15)
-
-
+// // vis3svg.selectAll("circle")
+// // 	.data(data3)
+// // 	.enter()
+// // 	.append("circle")
+// // 	.attr("cx", 100)
+// // 	.attr("cy", 100)
+// // 	.attr("r", 15)
 
 
 
-});
 
+
+// });
 
 
 
@@ -1171,18 +1165,22 @@ const scaleScatterY = d3.scaleLinear().domain([80,0]).range([height-margin.top-m
 
 
 
-var vis4svg = d3.select("#vis4")
-.append("svg")
-.attr("width", width-margin.top-margin.bottom)
-.attr("height", height-margin.top-margin.bottom)
-// .append('g')
+
+
+
+// .attr("width", width-margin.top-margin.bottom)
+// .attr("height", height-margin.top-margin.bottom)
+
+
+
+
 // .attr("transform", "rotate(-45)")
 
 // .attr('transform', 'translate(200,-110)rotate(-45)')
 
 
 // vis4svg.attr('transform', 'translate(200,-110)rotate(-45)')
-vis4svg.attr('transform', 'translate(30,30)rotate(0)')
+// vis4svg.attr('transform', 'translate(30,30)rotate(0)')
 
 
 
@@ -1205,6 +1203,14 @@ vis4svg.attr('transform', 'translate(30,30)rotate(0)')
 // const vis4svg= vis4svg.transform().rotate(45);
 
 d3.csv('data/careersSum.csv', function (data4) {
+
+	var vis4svg = d3.select("#vis4")
+.append("svg")
+.attr("width", width-margin.top-margin.bottom)
+.attr("height", height-margin.top-margin.bottom)
+.append('g');
+
+
 
 vis4svg.selectAll("circle")
 	.data(data4)
@@ -1251,15 +1257,9 @@ vis4svg.selectAll("text")
 
 
 
-
-})
-
-
-
-
 var xAxisbar = d3.axisTop().scale(scaleScatterX).ticks(12);
 
-var yAxisbar = d3.axisLeft().scale(scaleScatterY).ticks(22)
+var yAxisbar = d3.axisLeft().scale(scaleScatterY).ticks(22);
 
 var axisDisplace;
 
@@ -1281,6 +1281,16 @@ var axisDisplace;
 
 
 
+
+
+
+})
+
+
+
+
+
+
 const vis5svg = d3.select('#vis5')
 	.append('svg')
 	.attr("width", width-margin.top-margin.bottom)
@@ -1297,8 +1307,6 @@ d3.csv("data/2013output.csv", function (data5){
 
 // data2.forEach(function (d){ d.Year = +d.Year; d.Butcher = +d.Butcher; d.Swenson = +d.Swenson});
 
-console.log("THE DATAS5");
-console.log(data5);
 
 const restColor = "#3288bd";
 const runColor = "#66c2a5";
