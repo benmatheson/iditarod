@@ -15,7 +15,7 @@ const margin = {
 
 
 function executeVis1 () {
-	d3.select("svg").remove();
+	d3.select("#vis1 svg").remove();
 
 	const vis1svg = d3.select('#vis1')
 .append("svg")
@@ -351,16 +351,15 @@ var select1 = vis1svg
 
 var vis2svg = d3.select('#vis2')
 .append("svg")
-.attr("width", 700 )
-.attr("height", 400);
+.attr("width", width-margin.top-margin.bottom )
+.attr("height", height-margin.top-margin.bottom-400);
 // .attr('transform', 'translate(20,0)rotate(0)');
 
-console.log("Vis2svg");
-console.log(vis2svg);
+// console.log(vis2svg);
 
 console.log("making teh sbg");
 console.log(height-margin.top-margin.bottom-400)
-// width-margin.top-margin.bottom
+// 
 
 
 
@@ -370,8 +369,6 @@ var vis2Smallsvg = d3.select('#vis2Small')
 .attr("height", 300)
 .attr("fill", "purple")
 
-console.log("Vis2svgsmall");
-console.log(vis2Smallsvg);
 
 var vis2Smallsvg2 = d3.select('#vis2Small2')
 .append("svg")
@@ -410,14 +407,14 @@ var vis2Smallsvg7 = d3.select('#vis2Small7')
 .append("svg")
 .attr("width", 300)
 .attr("height", 300)
-.attr("fill", "purple")
+.attr("fill", "purple");
 
 
 var vis2Smallsvg8 = d3.select('#vis2Small8')
 .append("svg")
 .attr("width", 300)
 .attr("height", 300)
-.attr("fill", "purple")
+.attr("fill", "purple");
 
 
 var step2Height = height-margin.top-margin.bottom-400;
@@ -440,7 +437,7 @@ var axisDisplace;
 			   	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "10")
 			   	.classed("axis", true)
-			   		.call(xAxisStep)
+			   		.call(xAxisStep);
 
 
 	vis2svg.append('g')
@@ -448,7 +445,7 @@ var axisDisplace;
 	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "10")
 			   				   	.classed("axis", true)
-			   				   			.call(yAxisStep)
+			   				   			.call(yAxisStep);
 
 
 
@@ -466,7 +463,7 @@ vis2svg.append('text')
 .attr("x", scaleX(13))
 .attr("y", scaleY(4))
 .text("Susan Butcher")
-.attr('transform', adjust)
+.attr('transform', adjust);
 
 
 vis2svg.append('circle')
@@ -1207,7 +1204,7 @@ d3.csv('data/careersSum.csv', function (data4) {
 	var vis4svg = d3.select("#vis4")
 .append("svg")
 .attr("width", width-margin.top-margin.bottom)
-.attr("height", height-margin.top-margin.bottom)
+.attr("height", height-margin.top-margin.bottom-100)
 .append('g');
 
 
