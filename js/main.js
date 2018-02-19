@@ -424,7 +424,7 @@ const scaleY = d3.scaleLinear().domain([0,5]).range([height-margin.top-margin.bo
 
 
 const scaleSmallX = d3.scaleLinear().domain([0,26]).range([0, 300]);
-const scaleSmallY = d3.scaleLinear().domain([0,5]).range([280, 0]);
+const scaleSmallY = d3.scaleLinear().domain([-1,5]).range([280, 0]);
 
 var xAxisStep = d3.axisBottom().scale(scaleX).ticks(22);
 
@@ -433,7 +433,7 @@ var yAxisStep = d3.axisLeft().scale(scaleY).ticks(5)
 var axisDisplace;
 
 	vis2svg.append('g')
-			.attr('transform', 'translate(60,'+(step2Height-30)+')rotate(0)')
+			.attr('transform', 'translate(69,'+(step2Height-45)+')rotate(0)')
 			   	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "10")
 			   	.classed("axis", true)
@@ -441,7 +441,7 @@ var axisDisplace;
 
 
 	vis2svg.append('g')
-		.attr('transform', 'translate(40,47)rotate(0)')
+		.attr('transform', 'translate(40,33)rotate(0)')
 	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "10")
 			   				   	.classed("axis", true)
@@ -455,13 +455,15 @@ var axisDisplace;
 
 
 
+
 var adjust = 'translate(70,32)rotate(0)';
+var adjustSmall = 'translate(20,0)rotate(0)';
 
 
 vis2svg.append('text')
 .attr("class", "linePoint")
-.attr("x", scaleX(13))
-.attr("y", scaleY(4))
+.attr("x", scaleX(13.1))
+.attr("y", scaleY(4.1))
 .text("Susan Butcher")
 .attr('transform', adjust);
 
@@ -480,8 +482,8 @@ vis2svg.append('circle')
 
 vis2svg.append('text')
 .attr("class", "linePoint")
-.attr("x", scaleX(17))
-.attr("y", scaleY(4))
+.attr("x", scaleX(17.1))
+.attr("y", scaleY(4.1))
 .text("Jeff King")
 .attr('transform', adjust)
 
@@ -497,8 +499,8 @@ vis2svg.append('circle')
 
 vis2svg.append('text')
 .attr("class", "linePoint")
-.attr("x", scaleX(19))
-.attr("y", scaleY(4))
+.attr("x", scaleX(19.1))
+.attr("y", scaleY(4.1))
 .text("Martin Buser")
 .attr('transform', adjust)
 
@@ -515,8 +517,8 @@ vis2svg.append('circle')
 
 vis2svg.append('text')
 .attr("class", "linePoint")
-.attr("x", scaleX(16))
-.attr("y", scaleY(5))
+.attr("x", scaleX(16.1))
+.attr("y", scaleY(5.1))
 .text("Rick Swenson")
 .attr('transform', adjust)
 
@@ -533,8 +535,8 @@ vis2svg.append('circle')
 
 vis2svg.append('text')
 .attr("class", "linePoint")
-.attr("x", scaleX(10))
-.attr("y", scaleY(4.3))
+.attr("x", scaleX(10.1))
+.attr("y", scaleY(4.4))
 .text("Doug Swingley")
 .attr('transform', adjust)
 
@@ -550,8 +552,8 @@ vis2svg.append('circle')
 
 vis2svg.append('text')
 .attr("class", "linePoint")
-.attr("x", scaleX(7))
-.attr("y", scaleY(4))
+.attr("x", scaleX(7.2))
+.attr("y", scaleY(4.2))
 .text("Lance Mackey")
 .attr('transform', adjust)
 
@@ -567,8 +569,8 @@ vis2svg.append('circle')
 
 vis2svg.append('text')
 .attr("class", "linePoint")
-.attr("x", scaleX(10))
-.attr("y", scaleY(3.7))
+.attr("x", scaleX(10.2))
+.attr("y", scaleY(3.6))
 .text("Dallas Seavey")
 .attr('transform', adjust)
 
@@ -583,8 +585,8 @@ vis2svg.append('circle')
 
 vis2svg.append('text')
 .attr("class", "linePoint")
-.attr("x", scaleX(24))
-.attr("y", scaleY(3))
+.attr("x", scaleX(24.1))
+.attr("y", scaleY(3.1))
 .text("Mitch Seavey")
 .attr('transform', adjust)
 
@@ -602,7 +604,9 @@ vis2svg.append('text')
 	.attr("x", scaleX(2.5))
 	.attr("y", scaleY(3))
 				   	.style("font-family", "Nunito Sans")
-			   	.style("font-size", "20")
+			   	.style("font-size", "18")
+			   	.style("font-style", "italic")
+			   	.style("fill", "gray")
 
 
 
@@ -611,8 +615,12 @@ vis2svg.append('text')
 	.attr("x", scaleX(15))
 	.attr("y", scaleY(0))
 				   	.style("font-family", "Nunito Sans")
-			   	.style("font-size", "20")
+			   	.style("font-size", "18")
 			   	.attr('transform', adjust)
+			   	.style("font-style", "italic")
+			   	.style("font-weight", "200")
+			   	.style("fill", "gray");
+
 
 
 // console.log(scrollmagic);
@@ -640,7 +648,8 @@ const lineSm1 = d3.line()
 	.y(function(d) {return scaleSmallY(d['Susan Butcher'])})
 	  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
+
  	// .interpolate("step");
 
 const lineSm2 = d3.line()
@@ -648,7 +657,7 @@ const lineSm2 = d3.line()
 	.y(function(d) {return scaleSmallY(d['Rick Swenson'])})
 		  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
  	// .interpolate("step");
 
 
@@ -665,7 +674,7 @@ const lineSm3 = d3.line()
 	.y(function(d) {return scaleSmallY(d['Jeff King'])})
 		  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
 
 
  // var totalLength = line4[0].getTotalLength();
@@ -688,7 +697,7 @@ const lineSm3 = d3.line()
 	.y(function(d) {return scaleSmallY(d['Doug Swingley'])})
 		  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
  	// .interpolate("step");
 
  	const lineSm6 = d3.line()
@@ -696,7 +705,7 @@ const lineSm3 = d3.line()
 	.y(function(d) {return scaleSmallY(d['Lance Mackey'])})
 		  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
  	// .interpolate("step");
 
 
@@ -933,7 +942,7 @@ sv.append("path")
 sv.append('text')
 .text(ms)
 .attr("x", 100)
-.attr("y", 50)
+.attr("y", 40)
 .style('font-family', "Nunito Sans")
 .style('fill', "black")
 .style('font-weight', 700)
@@ -960,7 +969,7 @@ const line1 = d3.line()
 	.y(function(d) {return scaleY(d['Susan Butcher'])})
 	  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
  	// .interpolate("step");
 
 const line2 = d3.line()
@@ -968,7 +977,7 @@ const line2 = d3.line()
 	.y(function(d) {return scaleY(d['Rick Swenson'])})
 		  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
  	// .interpolate("step");
 
 
@@ -985,7 +994,7 @@ const line3 = d3.line()
 	.y(function(d) {return scaleY(d['Jeff King'])})
 		  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
 
 
  // var totalLength = line4[0].getTotalLength();
@@ -1008,7 +1017,7 @@ const line3 = d3.line()
 	.y(function(d) {return scaleY(d['Doug Swingley'])})
 		  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
  	// .interpolate("step");
 
  	const line6 = d3.line()
@@ -1016,7 +1025,7 @@ const line3 = d3.line()
 	.y(function(d) {return scaleY(d['Lance Mackey'])})
 		  .defined(function (d) { return d[1] !== null; })
 
-	.curve(d3.curveStepBefore)
+	.curve(d3.curveStepAfter)
  	// .interpolate("step");
 
 
@@ -1209,6 +1218,108 @@ d3.csv('data/careersSum.csv', function (data4) {
 
 
 
+// var tooltip1 = d3.select('#visTool').append("div")
+//                   .attr("class", "tooltip")
+//                   .style("opacity", 0);
+
+                 
+var dest = document.getElementById('visTool');
+
+
+
+function toB (er) {
+
+return Number.parseFloat(er).toFixed(2)
+
+}
+              // tooltip mouseover event handler
+              var tipMouseover = function(d) {
+                  // var color = colorScale(d.manufacturer);
+                  var html1  = "Musher Name: "+d.name + "<br/>" +
+                              "Average Place: "+(toB(d.mean))+ "<br />"+
+                              "Completed Iditarods: "+d.n;
+
+
+                  // tooltip1.style("left", (d3.event.pageX + 15) + "px")
+                  //     .style("top", (d3.event.pageY - 28) + "px")
+
+
+					// d3.select(this)
+					// .attr("fill", "black")
+					// .transition()
+					// .duration(200)
+					// 	.attr("r",function(d) {return Math.sqrt(d.shipmentCount/300) })
+
+
+                  // tooltip1(innerHTML)= html1;
+
+                  	// console.log("d3.select(this).attr("")");
+                  	console.log(d3.select(this).attr("cx"));
+
+                  visTool.innerHTML = html1;
+
+                 
+                 d3.select("#visTool")
+                 	// .style("left", ()=>d3.select(this).attr("cx"))
+                 	// .style("top", ()=>d3.select(this).attr("cy"));
+                 	  .attr("x", ()=>d3.select(this).attr("cx"))
+                 	.attr("y", ()=>d3.select(this).attr("cy"));
+                  // tooltip1.innerHTML = html1;
+                  // tooltip1.html = html1;
+
+
+
+
+
+       //            .style("left", d3.select(this).attr("cx")+(margin.left+1200)+"px")     
+  					// .style("top", d3.select(this).attr("cy") +margin.top+ "px")
+
+ 					// .style("left", 221+"px")     
+  				// 	.style("top", 261+"px")
+      //               .transition()
+      //                 .duration(100) // ms
+      //                 .style("opacity", .9); // started as 0!
+
+
+console.log("were in!!!");
+console.log("the XXXXX"+d3.select(this).attr("cx"));
+
+console.log("the WYYYYY"+d3.select(this).attr("cy"));
+// console.log(tooltip1);
+
+console.log("THMLT");
+console.log(html1);
+
+
+
+              };
+
+              // tooltip mouseout event handler
+              var tipMouseout = function(d) {
+                  tooltip1.transition()
+                      .duration(300) // ms
+                      .style("opacity", .6); 
+
+                      // d3.select(this).attr("fill", "black");
+
+// don't care about position!
+
+
+console.log("were out!!!")
+
+              };
+
+
+
+
+
+
+
+
+
+
+
+
 vis4svg.selectAll("circle")
 	.data(data4)
 		.enter()
@@ -1221,7 +1332,10 @@ vis4svg.selectAll("circle")
 		.attr("fill", function(d) {if (d.name =="Jeff King" || d.name =="Martin Buser" || d.name =="Rick Swenson" || d.name =="Susan Butcher" || d.name =="Doug Swingley" || d.name =="Lance Mackey" || d.name =="Jeff King" || d.name =="Mitch Seavey"|| d.name =="Dallas Seavey" || d.name =="John Baker" || d.name =="Robert Sorilie" || d.name =="Joe Runyan" || d.name =="Libby Riddles"|| d.name =="Dean Osmar"|| d.name =="Rick Mackey"|| d.name =="Joe May"|| d.name =="Dick Mackey"|| d.name =="Gerald Riley"|| d.name =="Emmitt Peters"|| d.name =="Carl Huntington"|| d.name =="Dick Wilmarth"){return "darkblue"}})
 
 		.attr("opacity", .3)
-		.attr('transform', 'translate(20,20)rotate(0)')
+		.attr('transform', 'translate(50,20)rotate(0)')
+	.on("mouseover", tipMouseover)
+    .on("mouseout", tipMouseout);
+
 
 var vis4svgG = vis4svg.append('g');
 
@@ -1231,14 +1345,36 @@ vis4svgG.append('text')
 	.attr("y", scaleScatterY(12))
 				   	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "20")
+			   				   	.style("fill", "gray")
+
 
 
 vis4svgG.append('text')
 	.text("↑Career Place Average ")
-	.attr("x", scaleScatterX(3))
+	.attr("x", scaleScatterX(5))
 	.attr("y", scaleScatterY(72))
 				   	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "20")
+			   	.style("fill", "gray")
+
+
+
+vis4svgG.append('text')
+	.text("Past Champions ")
+	.attr("x", scaleScatterX(15.4))
+	.attr("y", scaleScatterY(73))
+				   	.style("font-family", "Nunito Sans")
+			   	.style("font-size", "16")
+			   	.style("fill", "gray")
+
+
+vis4svgG.append('circle')
+	.text("↑Career Place Average ")
+	.attr("cx", scaleScatterX(15))
+	.attr("cy", scaleScatterY(72))   	
+	.attr("r", 5)   	
+	.attr("fill", "darkblue")   	
+	.attr("opacity", .3)   	
 
 
 vis4svg.selectAll("text")
@@ -1250,6 +1386,13 @@ vis4svg.selectAll("text")
 		// .text( d=>d.name)
 		.attr("opacity", .9)
 		.style("font-size", 6)
+
+
+
+
+
+
+
 
 
 
@@ -1320,10 +1463,12 @@ var select5 = vis5svg.selectAll('line')
 
 select5g.append('text')
 	.text(d=>d.musher)
-	.attr("x", 20)
+	.attr("x", 95)
 	.style("font-size", 8)
 	.style("font-family","Nunito Sans")
 	.attr("y", (d,i)=>i*barGap)
+	        .attr("text-anchor", "end")
+
 	.attr('transform', 'translate(0,33)rotate(0)')
 
 
@@ -1333,9 +1478,9 @@ function executePattern (x1, x2, action, delayTime) {
 
 	select5g.append('line')
 	// .style("stroke", "green")  // colour the line
-	.style("stroke-width", function() { if (action=="rest") {return barWidth-2} else {return barWidth-2 }})  // colour the line
-	.attr("opacity", 0)
-	.attr("stroke-dasharray", "1, .1")
+	.style("stroke-width", function() { if (action=="rest") {return barWidth-3} else {return barWidth+1 }})  // colour the line
+	.attr("opacity",0)
+	// .attr("stroke-dasharray", "1, .1")
 	    .attr("y1", (d,i)=>i*barGap)      // y position of the first end of the line
     .attr("y2", (d,i)=>i*barGap)
 .attr('transform', 'translate(0,30)rotate(0)')
@@ -1352,7 +1497,7 @@ function executePattern (x1, x2, action, delayTime) {
     .attr("y1", (d,i)=>(i*barGap))      // y position of the first end of the line
     .attr("x2", (d,i)=>scalePatternX(d[x2])+100)    // x position of the second end of the line
     .attr("y2", (d,i)=>(i*barGap))
-    	.attr("opacity", 1)
+    	.attr("opacity", .8)
     	// .attr("stroke-linecap", "round")
 
 	.style("stroke", function() {if (action =="rest") {return restColor} else {return runColor }}) 
@@ -1367,6 +1512,9 @@ function executePattern (x1, x2, action, delayTime) {
 var patternDelay = 400;
 
 function executeVis5 () {
+
+	// executePattern(1139220,1140020, "rest", 20);
+
 
 executePattern('enRoute_Yentna', 'restTime_Yentna', "rest", (patternDelay*1));
 executePattern('restTime_Yentna', 'enRoute_Skwentna', "run", patternDelay*2);
@@ -1436,6 +1584,46 @@ executePattern('restTime_Safety', 'enRoute_Nome', "run", patternDelay*42);
     .attr("x2", (d,i)=>scalePatternX(d.enRoute_Yentna)+100)     // x position of the second end of the line
     .attr("y2", (d,i)=>i*barGap)
 	.style("stroke", runColor)  // colour the line
+
+
+
+		vis5svg
+	.append('line')
+	.style("stroke-width", barWidth+1)  // colour the line
+    .attr("x1", (d,i)=>scalePatternX(1069220))     // x position of the first end of the line
+    .attr("y1", (d,i)=>50)      // y position of the first end of the line
+    .attr("x2", (d,i)=>scalePatternX( 1094840))     // x position of the second end of the line
+    .attr("y2", (d,i)=>50)
+.attr('transform', 'translate(0,30)rotate(0)')
+	.style("stroke", runColor)  
+
+
+		vis5svg
+	.append('line')
+	.style("stroke-width", barWidth-3)  // colour the line
+    .attr("x1", (d,i)=>scalePatternX(1069220))     // x position of the first end of the line
+    .attr("y1", (d,i)=>80)      // y position of the first end of the line
+    .attr("x2", (d,i)=>scalePatternX( 1094840))     // x position of the second end of the line
+    .attr("y2", (d,i)=>80)
+.attr('transform', 'translate(0,30)rotate(0)')
+	.style("stroke", restColor)  
+
+vis5svg
+	.append('text')
+.attr("x", (d,i)=>scalePatternX(1099220))     // x position of the first end of the line
+    .attr("y", (d,i)=>85)
+    .text("Run Time")
+    .style("font-family", "Nunito Sans")
+	.style("font-size", "20")
+
+    	vis5svg
+	.append('text')
+.attr("x", (d,i)=>scalePatternX(1099220))     // x position of the first end of the line
+    .attr("y", (d,i)=>115)
+    .text("Rest Time")
+    .style("font-family", "Nunito Sans")
+	.style("font-size", "20")
+
 
 }
 
