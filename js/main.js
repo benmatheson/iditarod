@@ -1332,7 +1332,7 @@ vis4svg.selectAll("circle")
 		.attr("fill", function(d) {if (d.name =="Jeff King" || d.name =="Martin Buser" || d.name =="Rick Swenson" || d.name =="Susan Butcher" || d.name =="Doug Swingley" || d.name =="Lance Mackey" || d.name =="Jeff King" || d.name =="Mitch Seavey"|| d.name =="Dallas Seavey" || d.name =="John Baker" || d.name =="Robert Sorilie" || d.name =="Joe Runyan" || d.name =="Libby Riddles"|| d.name =="Dean Osmar"|| d.name =="Rick Mackey"|| d.name =="Joe May"|| d.name =="Dick Mackey"|| d.name =="Gerald Riley"|| d.name =="Emmitt Peters"|| d.name =="Carl Huntington"|| d.name =="Dick Wilmarth"){return "darkblue"}})
 
 		.attr("opacity", .3)
-		.attr('transform', 'translate(50,20)rotate(0)')
+		.attr('transform', 'translate(30,20)rotate(0)')
 	.on("mouseover", tipMouseover)
     .on("mouseout", tipMouseout);
 
@@ -1404,7 +1404,7 @@ var yAxisbar = d3.axisLeft().scale(scaleScatterY).ticks(22);
 var axisDisplace;
 
 	vis4svg.append('g')
-			.attr('transform', 'translate(20,20)rotate(0)')
+			.attr('transform', 'translate(30,20)rotate(0)')
 			   	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "10")
 			   	.classed("axis", true)
@@ -1412,7 +1412,7 @@ var axisDisplace;
 
 
 	vis4svg.append('g')
-		.attr('transform', 'translate(20,20)rotate(0)')
+		.attr('transform', 'translate(30,20)rotate(0)')
 	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "10")
 			   				   	.classed("axis", true)
