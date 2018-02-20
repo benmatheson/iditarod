@@ -208,10 +208,11 @@ font-size: 2rem;
 
 #replay{
 
-background-color: white;
+background-color: black;
+color: whitesmoke;
 padding:.5%;
     position: absolute;
-    left: 50%;
+    left: 47%;
     top: 70%;
 /*    left:50%;
     top: 70%;*/

@@ -109,7 +109,7 @@ var circ = vis1gEnter
 	// .data(dat)
 	// .enter()
 	.append("circle")
-	.attr("cx", 150)
+	.attr("cx", 190)
 	  .attr("cy", (d,i) => i*10-adjust)
 .attr("stroke", "black")
 .attr("fill", "white")
@@ -186,10 +186,10 @@ circ.transition()
 
 
 	    vis1gEnter.append("line")
-	.attr("x1", 100)
+	.attr("x1", 150)
 	.attr("y1", (d,i) => i*10-adjust)
-		.attr("x2", 100)
-          .style("stroke", 'black')
+		.attr("x2", 150)
+          .style("stroke", 'gray')
           .style("stroke-width", .5)
           .style("stroke-dasharray", "1, 3")
 
@@ -1473,7 +1473,7 @@ var select5 = vis5svg.selectAll('line')
 	var select5g = select5.append('g');
 
 	var barWidth = 9;
-	var barGap =9;
+	var barGap =11;
 
 
 select5g.append('text')
@@ -1493,7 +1493,7 @@ function executePattern (x1, x2, action, delayTime) {
 
 	select5g.append('line')
 	// .style("stroke", "green")  // colour the line
-	.style("stroke-width", function() { if (action=="rest") {return barWidth-3} else {return barWidth+1 }})  // colour the line
+	.style("stroke-width", function() { if (action=="rest") {return barWidth-5} else {return barWidth+1 }})  // colour the line
 	.attr("opacity",0)
 	// .attr("stroke-dasharray", "1, .1")
 	    .attr("y1", (d,i)=>i*barGap)      // y position of the first end of the line
@@ -1584,7 +1584,7 @@ executePattern('restTime_Safety', 'enRoute_Nome', "run", patternDelay*42);
 	select5
 	.append('line')
 	.style("stroke", "black")  // colour the line
-	.style("stroke-width", barWidth-2)  // colour the line
+	.style("stroke-width", barWidth+1)  // colour the line
     .attr("x1", (d,i)=>50)     // x position of the first end of the line
     .attr("y1", (d,i)=>i*barGap)      // y position of the first end of the line
     .attr("x2", (d,i)=>50)     // x position of the second end of the line
@@ -1615,7 +1615,7 @@ executePattern('restTime_Safety', 'enRoute_Nome', "run", patternDelay*42);
 
 		vis5svg
 	.append('line')
-	.style("stroke-width", barWidth-3)  // colour the line
+	.style("stroke-width", barWidth-5)  // colour the line
     .attr("x1", (d,i)=>scalePatternX(1069220))     // x position of the first end of the line
     .attr("y1", (d,i)=>80)      // y position of the first end of the line
     .attr("x2", (d,i)=>scalePatternX( 1094840))     // x position of the second end of the line
