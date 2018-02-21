@@ -24,10 +24,15 @@ function executeVis1 () {
 
 // height-margin.top-margin.bottom
 
+//37.04
+//18.52
+//way too fast at 29
 let step =1;
 console.log("EDTUETINGINETEN VIS @!1");
 
-var start = setInterval(cycleTime, 18.52);
+var start = setInterval(cycleTime, 37);
+
+
 
 function myStopFunction() {
     clearInterval(start);
@@ -53,7 +58,7 @@ var diff = moment.preciseDiff(m1, added);
   
  var doc = document.querySelector('#time')
  doc.innerHTML=diff;
-  if (step < 481) {
+  if (step < 495) {
     
     // console.log(step);
     step++}
@@ -121,7 +126,7 @@ var circ = vis1gEnter
 
 
 circ.transition()
-  .duration((d,i)=> d.duration/200)
+  .duration((d,i)=> d.duration/100)
   .attr("cx", width-100)
   	 .attr("T",481)
 
@@ -197,7 +202,7 @@ circ.transition()
 
 	.attr("y2", (d,i) => i*10-adjust)
 	.transition()
-  .duration((d,i)=> d.duration/200)
+  .duration((d,i)=> d.duration/100)
 		.attr("x2", width-100)
 	.attr("y2", (d,i) => i*10-adjust)
 		.ease(d3.easeLinear);
@@ -301,7 +306,7 @@ var select1 = vis1svg
 	.style("text-align", "right")
 		.attr("opacity", 0)
 		.transition()
-	  .delay((d,i)=> d.duration/200)
+	  .delay((d,i)=> d.duration/100)
 
 	.attr("opacity", 1)
 	.ease(d3.easeLinear)
@@ -972,6 +977,8 @@ const line1 = d3.line()
 	  .defined(function (d) { return d[1] !== null; })
 
 	.curve(d3.curveStepAfter)
+
+
  	// .interpolate("step");
 
 const line2 = d3.line()
@@ -1054,8 +1061,22 @@ var lineGraph1 = vis2svg.append("path")
 							.data([data2])
                            .attr("d", line1)
                                .attr("class", "lineStyle1")
-                         // .style("stroke", "red")
+                         .style("stroke", "#d53e4f")
+                         .style("opacity", 0)
 .attr('transform', adjust)
+      
+	var l1 = lineGraph1.node().getTotalLength();
+
+      lineGraph1.attr('stroke-dasharray', `${l1} ${l1}`)
+      .attr('stroke-dashoffset', l1)
+
+			.transition()
+				.delay(500)
+				.duration(4000)
+                 .style("opacity", 1)
+                .attr('stroke-dashoffset', 0)
+
+
 
                    
 
@@ -1067,10 +1088,23 @@ var lineGraph2 = vis2svg.append("path")
 							.data([data2])
                            .attr("d", line2)
                                                    .attr("class", "lineStyle1")
-                                                          // .style("stroke", "red")
+                                                          .style("stroke", "blue")
 .attr('transform', adjust)
 
-                         // .style("stroke", '#08589e')
+                         .style("stroke", '#f46d43')
+                                 .style("opacity", 0)
+.attr('transform', adjust)
+
+var l2 = lineGraph2.node().getTotalLength();
+
+      lineGraph2.attr('stroke-dasharray', `${l2} ${l2}`)
+      .attr('stroke-dashoffset', l2)
+
+			.transition()
+				.delay(1000)
+				.duration(4000)
+                 .style("opacity", 1)
+                .attr('stroke-dashoffset', 0)
 
 
 
@@ -1081,7 +1115,19 @@ var lineGraph3 = vis2svg.append("path")
                            .attr("d", line3)
                                                 .attr("class", "lineStyle1")
 .attr('transform', adjust)
+                         .style("stroke", '#fdae61')
+                                 .style("opacity", 0)
+.attr('transform', adjust)
+var l3 = lineGraph3.node().getTotalLength();
 
+      lineGraph3.attr('stroke-dasharray', `${l3} ${l3}`)
+      .attr('stroke-dashoffset', l3)
+
+			.transition()
+				.delay(1500)
+				.duration(4000)
+                 .style("opacity", 1)
+                .attr('stroke-dashoffset', 0)
 
 
 
@@ -1091,9 +1137,20 @@ var lineGraph3 = vis2svg.append("path")
                            .attr("d", line4)
                                  .attr("class", "lineStyle1")
 .attr('transform', adjust)
+                         .style("stroke", '#fee08b')
+  .style("opacity", 0)
+.attr('transform', adjust)
 
+var l4 = lineGraph4.node().getTotalLength();
 
+      lineGraph4.attr('stroke-dasharray', `${l4} ${l4}`)
+      .attr('stroke-dashoffset', l4)
 
+			.transition()
+				.delay(2000)
+				.duration(4000)
+                 .style("opacity", 1)
+                .attr('stroke-dashoffset', 0)
 
 
                            var lineGraph5 = vis2svg.append("path")
@@ -1101,6 +1158,21 @@ var lineGraph3 = vis2svg.append("path")
                            .attr("d", line5)
                                                     .attr("class", "lineStyle1")
 .attr('transform', adjust)
+                         .style("stroke", '#e0f3f8')
+  .style("opacity", 0)
+
+var l5 = lineGraph5.node().getTotalLength();
+
+      lineGraph5.attr('stroke-dasharray', `${l5} ${l5}`)
+      .attr('stroke-dashoffset', l5)
+
+			.transition()
+				.delay(2500)
+				.duration(4000)
+                 .style("opacity", 1)
+                .attr('stroke-dashoffset', 0)
+
+
 
 
 
@@ -1109,6 +1181,27 @@ var lineGraph3 = vis2svg.append("path")
                            .attr("d", line6)
                                                    .attr("class", "lineStyle1")
 .attr('transform', adjust)
+                         .style("stroke", '#abdda4')
+                           .style("opacity", 0)
+.attr('transform', adjust)
+
+var l6 = lineGraph6.node().getTotalLength();
+
+      lineGraph6.attr('stroke-dasharray', `${l6} ${l6}`)
+      .attr('stroke-dashoffset', l6)
+
+			.transition()
+				.delay(3000)
+				.duration(4000)
+                 .style("opacity", 1)
+                .attr('stroke-dashoffset', 0)
+
+
+
+
+
+
+
 
 
                            var lineGraph7 = vis2svg.append("path")
@@ -1116,6 +1209,21 @@ var lineGraph3 = vis2svg.append("path")
                            .attr("d", line7)
                                                    .attr("class", "lineStyle1")
 .attr('transform', adjust)
+                         .style("stroke", '#66c2a5')
+                           .style("opacity", 0)
+.attr('transform', adjust)
+
+var l7 = lineGraph7.node().getTotalLength();
+
+      lineGraph7.attr('stroke-dasharray', `${l7} ${l7}`)
+      .attr('stroke-dashoffset', l7)
+
+			.transition()
+				.delay(3500)
+				.duration(4000)
+                 .style("opacity", 1)
+                .attr('stroke-dashoffset', 0)
+
 
 
 
@@ -1125,6 +1233,21 @@ var lineGraph3 = vis2svg.append("path")
                            .attr("d", line8)
                          .attr("class", "lineStyle1")
 .attr('transform', adjust)
+                         .style("stroke", '#3288bd')
+                           .style("opacity", 0)
+.attr('transform', adjust)
+
+var l8 = lineGraph8.node().getTotalLength();
+
+      lineGraph8.attr('stroke-dasharray', `${l8} ${l8}`)
+      .attr('stroke-dashoffset', l8)
+
+			.transition()
+				.delay(4000)
+				.duration(4000)
+                 .style("opacity", 1)
+                .attr('stroke-dashoffset', 0)
+
 
 
 
