@@ -171,7 +171,7 @@ circ.transition()
 	.style("font-family", "Nunito Sans")
 	.style("font-size", "10")
 	.style("text-align", "right")
-	.style("font-weight", 900)
+	.style("font-weight", 500)
 	.style("font-color", "red")
 	  .attr("y", (d,i) => i*10-adjust);	
 
@@ -221,28 +221,47 @@ vis1svg.append("text")
 
 	.attr("opacity", 1)
 
-console.log("dat[3]");
-console.log(dat[3]);
 
-
-var text1 = vis1g.append("text")
-	.attr("x", width-600)
+var text1 = vis1svg.append("text")
+	.attr("x", width-130)
 	.style("font-family", "Nunito Sans")
-	.style("font-size", "22")
+	.style("font-size", "11")
 	.style("text-align", "right")
 	.style("font-weight", 600)
-	  .attr("y", 100)
-	  .text("YO")
-	 //  	 // .text(d3.select(this).attr("T"))
+	  .attr("y", 10)
+	  	  	.style("opacity", 0)
 
-	 //  	 .attr("T",0)
-	 //  	.attr("opacity", 1)
-		// .transition()
-	 //  .delay( 22)
-	 //  .duration(8910)
-	 //  	.attr("T",8910)
+	  .text("Winning Race Time")
+	
+		.transition()
+	  .delay(7010)
+	  .duration(100)
+	  	.style("opacity", 1)
 
 
+var text2 = vis1svg.append("text")
+	.attr("x", 100)
+	.style("font-family", "Nunito Sans")
+	.style("font-size", "11")
+	.style("text-align", "right")
+	.style("font-weight", 600)
+	  .attr("y", 8)
+	  	  
+
+	  .text("Musher Name")
+
+
+var text3 = vis1svg.append("text")
+	.attr("x", 50)
+	.style("font-family", "Nunito Sans")
+	.style("font-size", "11")
+	.style("text-align", "right")
+	.style("font-weight", 600)
+	  .attr("y", 8)
+	  	  
+
+	  .text("Year")
+	
 
 
 
@@ -467,6 +486,8 @@ var adjust = 'translate(70,32)rotate(0)';
 var adjustSmall = 'translate(20,0)rotate(0)';
 
 
+function executeVis2 () {
+
 vis2svg.append('text')
 .attr("class", "linePoint")
 .attr("x", scaleX(13.1))
@@ -607,14 +628,14 @@ vis2svg.append('circle')
 
 
 vis2svg.append('text')
-	.text("↑Career Victories")
+	.text("↑Iditarod Victories")
 	.attr("x", scaleX(2.5))
 	.attr("y", scaleY(3))
 				   	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "18")
 			   	.style("font-style", "italic")
-			   	.style("fill", "gray")
-
+  	.style("font-size", "18")
+			   	.style("font-weight", "700")
 
 
 			   	vis2svg.append('text')
@@ -625,8 +646,8 @@ vis2svg.append('text')
 			   	.style("font-size", "18")
 			   	.attr('transform', adjust)
 			   	.style("font-style", "italic")
-			   	.style("font-weight", "200")
-			   	.style("fill", "gray");
+			   	.style("font-size", "18")
+			   	.style("font-weight", "700")
 
 
 
@@ -1254,7 +1275,7 @@ var l8 = lineGraph8.node().getTotalLength();
 
 })
 
-
+}
 
 // var vis3svg = d3.select('#vis3')
 // .append("svg")
@@ -1483,17 +1504,18 @@ vis4svgG.append('text')
 	.attr("y", scaleScatterY(12))
 				   	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "20")
-			   				   	.style("fill", "gray")
+			   	.style("font-weight", "700")
 
 
 
 vis4svgG.append('text')
 	.text("↑Career Place Average ")
-	.attr("x", scaleScatterX(5))
+	.attr("x", scaleScatterX(4))
 	.attr("y", scaleScatterY(72))
 				   	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "20")
-			   	.style("fill", "gray")
+			   	.style("font-weight", "700")
+			   	// .style("fill", "gray")
 
 
 
@@ -1503,7 +1525,8 @@ vis4svgG.append('text')
 	.attr("y", scaleScatterY(73))
 				   	.style("font-family", "Nunito Sans")
 			   	.style("font-size", "16")
-			   	.style("fill", "gray")
+			   	.style("font-weight", "600")
+			   	// .style("fill", "gray")
 
 
 vis4svgG.append('circle')
@@ -1752,16 +1775,16 @@ vis5svg
     .attr("y", (d,i)=>85)
     .text("Run Time")
     .style("font-family", "Nunito Sans")
-	.style("font-size", "20")
-
+  	.style("font-size", "20")
+			   	.style("font-weight", "700")
     	vis5svg
 	.append('text')
 .attr("x", (d,i)=>scalePatternX(1099220))     // x position of the first end of the line
     .attr("y", (d,i)=>115)
     .text("Rest Time")
     .style("font-family", "Nunito Sans")
-	.style("font-size", "20")
-
+  	.style("font-size", "20")
+			   	.style("font-weight", "700")
 
 }
 
@@ -1794,7 +1817,16 @@ var visCont2 = new ScrollMagic.Controller();
 				executeVis1()});
 
 
+var visCont3 = new ScrollMagic.Controller();
 
+
+	var vis2Scene = new ScrollMagic.Scene({
+
+			triggerElement: "#vis2Trigger",
+			duration: 900}).addTo(visCont3)
+	// .setClassToggle("#bars", "fade")
+		.on("start", function () {
+				executeVis2()});
 
 
 
