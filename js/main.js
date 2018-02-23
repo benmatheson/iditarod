@@ -116,9 +116,11 @@ var circ = vis1gEnter
 	.append("circle")
 	.attr("cx", 190)
 	  .attr("cy", (d,i) => i*10-adjust)
-.attr("stroke", "black")
+// .attr("stroke", "black")
 .attr("fill", "white")
-	.attr("r", 2)
+// .attr("fill", function(d){if(d.Year == 2017 || d.Year ==2011 || d.Year ==2014 || d.Year ==2002|| d.Year ==1995|| d.Year ==1975|| d.Year ==1980 || d.Year ==1981) {return "red"}})
+	.attr("fill", "black")
+	.attr("r", 3)
 	 .attr("T",0);
 
  // .attr("cy", 300)
@@ -167,12 +169,13 @@ circ.transition()
 	// .enter()
 	.append("text")
 	.text(d=> d.winner)
-	.attr("x", 100)
+	.attr("x", 87)
 	.style("font-family", "Nunito Sans")
 	.style("font-size", "10")
 	.style("text-align", "right")
 	.style("font-weight", 500)
 	.style("font-color", "red")
+
 	  .attr("y", (d,i) => i*10-adjust);	
 
 
@@ -231,7 +234,7 @@ var text1 = vis1svg.append("text")
 	  .attr("y", 10)
 	  	  	.style("opacity", 0)
 
-	  .text("Winning Race Time")
+	  // .text("Winning Race Time")
 	
 		.transition()
 	  .delay(7010)
@@ -246,9 +249,10 @@ var text2 = vis1svg.append("text")
 	.style("text-align", "right")
 	.style("font-weight", 600)
 	  .attr("y", 8)
-	  	  
+	  	  	  	  	.style("text-decoration", "underline")
 
-	  .text("Musher Name")
+
+	  .text("Musher")
 
 
 var text3 = vis1svg.append("text")
@@ -258,10 +262,36 @@ var text3 = vis1svg.append("text")
 	.style("text-align", "right")
 	.style("font-weight", 600)
 	  .attr("y", 8)
-	  	  
+	  	  	  	  	.style("text-decoration", "underline")
+
 
 	  .text("Year")
 	
+
+	var text4 = vis1svg.append("text")
+	.attr("x", 170)
+	.style("font-family", "Nunito Sans")
+	.style("font-size", "11")
+	.style("text-align", "right")
+	.style("font-weight", 600)
+	  .attr("y", 8)
+	  	  	.style("text-decoration", "underline")
+
+
+	  .text("Race Start")
+
+
+var text5 = vis1svg.append("text")
+	.attr("x", width-140)
+	.style("font-family", "Nunito Sans")
+	.style("font-size", "11")
+	.style("text-decoration", "underline")
+	.style("text-align", "right")
+	.style("font-weight", 600)
+	  .attr("y", 10)
+	  	  
+
+	  .text("Race Finish Time")
 
 
 
@@ -839,8 +869,8 @@ if (ms =="Susan Butcher") {
 sv.append("path")
 							.data([data2])
                            .attr("d", lineSm1)
-                         .attr("class", "lineStyle")
-                         .style("stroke", highlight)
+                         .attr("class", "lineStyleSm")
+                         .style("stroke", "purple")
 
 
 }
@@ -850,8 +880,8 @@ if (ms =="Rick Swenson") {
 sv.append("path")
 							.data([data2])
                            .attr("d", lineSm2)
-                         .attr("class", "lineStyle")
-                         .style("stroke", highlight)
+                         .attr("class", "lineStyleSm")
+                         .style("stroke", "rgb(244, 109, 67)")
 
 
 }
@@ -863,8 +893,8 @@ if (ms =="Martin Buser") {
 sv.append("path")
 							.data([data2])
                            .attr("d", lineSm3)
-                         .attr("class", "lineStyle")
-                         .style("stroke", highlight)
+                         .attr("class", "lineStyleSm")
+                         .style("stroke", "#fdae61")
 
 
 }
@@ -876,8 +906,8 @@ if (ms =="Jeff King") {
 sv.append("path")
 							.data([data2])
                            .attr("d", lineSm4)
-                         .attr("class", "lineStyle")
-                         .style("stroke", highlight)
+                         .attr("class", "lineStyleSm")
+                         .style("stroke", "#fee08b")
 
 
 }
@@ -888,8 +918,8 @@ if (ms =="Doug Swingley") {
 sv.append("path")
 							.data([data2])
                            .attr("d", lineSm5)
-                         .attr("class", "lineStyle")
-                         .style("stroke", highlight)
+                         .attr("class", "lineStyleSm")
+                         .style("stroke", "black")
 
 
 }
@@ -900,8 +930,8 @@ if (ms =="Lance Mackey") {
 sv.append("path")
 							.data([data2])
                            .attr("d", lineSm6)
-                         .attr("class", "lineStyle")
-                         .style("stroke", highlight)
+                         .attr("class", "lineStyleSm")
+                         .style("stroke", "#abdda4")
 
 
 }
@@ -912,8 +942,8 @@ if (ms =="Dallas Seavey") {
 sv.append("path")
 							.data([data2])
                            .attr("d", lineSm7)
-                         .attr("class", "lineStyle")
-                         .style("stroke", highlight)
+                         .attr("class", "lineStyleSm")
+                         .style("stroke", "#66c2a5")
 
 
 }
@@ -925,8 +955,8 @@ if (ms =="Mitch Seavey") {
 sv.append("path")
 							.data([data2])
                            .attr("d", lineSm8)
-                         .attr("class", "lineStyle")
-                         .style("stroke", highlight)
+                         .attr("class", "lineStyleSm")
+                         .style("stroke", "#3288bd")
 
 
 }
@@ -1082,8 +1112,8 @@ var lineGraph1 = vis2svg.append("path")
 							.data([data2])
                            .attr("d", line1)
                                .attr("class", "lineStyle1")
-                         .style("stroke", "#d53e4f")
-                         .style("opacity", 0)
+                         .style("stroke", "purple")
+                         .style("opacity", 1)
 .attr('transform', adjust)
       
 	var l1 = lineGraph1.node().getTotalLength();
@@ -1092,7 +1122,7 @@ var lineGraph1 = vis2svg.append("path")
       .attr('stroke-dashoffset', l1)
 
 			.transition()
-				.delay(500)
+				.delay(0)
 				.duration(4000)
                  .style("opacity", 1)
                 .attr('stroke-dashoffset', 0)
@@ -1113,7 +1143,7 @@ var lineGraph2 = vis2svg.append("path")
 .attr('transform', adjust)
 
                          .style("stroke", '#f46d43')
-                                 .style("opacity", 0)
+                                 .style("opacity", 1)
 .attr('transform', adjust)
 
 var l2 = lineGraph2.node().getTotalLength();
@@ -1137,7 +1167,7 @@ var lineGraph3 = vis2svg.append("path")
                                                 .attr("class", "lineStyle1")
 .attr('transform', adjust)
                          .style("stroke", '#fdae61')
-                                 .style("opacity", 0)
+                                 .style("opacity", 1)
 .attr('transform', adjust)
 var l3 = lineGraph3.node().getTotalLength();
 
@@ -1159,7 +1189,7 @@ var l3 = lineGraph3.node().getTotalLength();
                                  .attr("class", "lineStyle1")
 .attr('transform', adjust)
                          .style("stroke", '#fee08b')
-  .style("opacity", 0)
+  .style("opacity", 1)
 .attr('transform', adjust)
 
 var l4 = lineGraph4.node().getTotalLength();
@@ -1179,8 +1209,8 @@ var l4 = lineGraph4.node().getTotalLength();
                            .attr("d", line5)
                                                     .attr("class", "lineStyle1")
 .attr('transform', adjust)
-                         .style("stroke", '#e0f3f8')
-  .style("opacity", 0)
+                         .style("stroke", 'black')
+  .style("opacity", 1)
 
 var l5 = lineGraph5.node().getTotalLength();
 
@@ -1203,7 +1233,7 @@ var l5 = lineGraph5.node().getTotalLength();
                                                    .attr("class", "lineStyle1")
 .attr('transform', adjust)
                          .style("stroke", '#abdda4')
-                           .style("opacity", 0)
+                           .style("opacity", 1)
 .attr('transform', adjust)
 
 var l6 = lineGraph6.node().getTotalLength();
@@ -1231,7 +1261,7 @@ var l6 = lineGraph6.node().getTotalLength();
                                                    .attr("class", "lineStyle1")
 .attr('transform', adjust)
                          .style("stroke", '#66c2a5')
-                           .style("opacity", 0)
+                           .style("opacity", 1)
 .attr('transform', adjust)
 
 var l7 = lineGraph7.node().getTotalLength();
@@ -1255,7 +1285,7 @@ var l7 = lineGraph7.node().getTotalLength();
                          .attr("class", "lineStyle1")
 .attr('transform', adjust)
                          .style("stroke", '#3288bd')
-                           .style("opacity", 0)
+                           .style("opacity", 1)
 .attr('transform', adjust)
 
 var l8 = lineGraph8.node().getTotalLength();
@@ -1402,6 +1432,10 @@ return Number.parseFloat(er).toFixed(2)
                   	// console.log("d3.select(this).attr("")");
                   	console.log(d3.select(this).attr("cx"));
 
+
+                  	d3.select(this).attr("r", 12);
+                  	// d3.select(this).attr("stroke", "red");
+
                   visTool.innerHTML = html1;
 
                  
@@ -1458,6 +1492,9 @@ console.log(html1);
                   visD32.transition()
                       .duration(300) // ms
                       .style("opacity", 0); 
+
+                          d3.select(this).attr("r", 6);
+
 
                       // d3.select(this).attr("fill", "black");
 
@@ -1587,7 +1624,9 @@ var axisDisplace;
 
 })
 
+function executeVis5 () {
 
+d3.select("#vis5 svg").remove();
 
 
 
@@ -1609,14 +1648,20 @@ d3.csv("data/2013output.csv", function (data5){
 // data2.forEach(function (d){ d.Year = +d.Year; d.Butcher = +d.Butcher; d.Swenson = +d.Swenson});
 
 
-const restColor = "#3288bd";
-const runColor = "#66c2a5";
+// const restColor = "#3288bd";
+// const restColor = "#974E42";
+const restColor = "#aa62d2";
+// const runColor = "#e8a656";
+const runColor = "lightblue";
+// const runColor = "#3D7F52";
+// const runColor = "#66c2a5";
 
 var select5 = vis5svg.selectAll('line')
 	.data(data5, function(d) { return d.musher; })	
 	.enter();
 
 	var select5g = select5.append('g');
+	var select5gg = vis5svg.append('g');
 
 	var barWidth = 9;
 	var barGap =11;
@@ -1633,6 +1678,100 @@ select5g.append('text')
 	.attr('transform', 'translate(0,33)rotate(0)')
 
 
+select5gg.append('text')
+	.text("24 Hour Rests")
+	.attr("x", scalePatternX(200000)+100)
+.style("font-weight", 600)
+		.style("font-size", 11)
+			.style("font-family","Nunito Sans")
+	.attr("y", 20)
+	.style('opacity',0)
+	.transition()
+	.delay(6000)
+	.style('opacity',1)
+
+	select5gg.append('text')
+	.text("White Mountain Rest")
+	.attr("x", scalePatternX(767200)+60)
+	.style("font-weight", 600)
+		.style("font-size", 11)
+	.style("font-family","Nunito Sans")
+	.attr("y", 20)
+	.style('opacity',0)
+	.transition()
+	.delay(15600)
+	.style('opacity',1)
+
+		select5gg.append('text')
+	.text("Bering Sea Coast")
+	.attr("x", scalePatternX(636200)+80)
+.style("font-weight", 600)
+		.style("font-size", 11)
+	.style("font-family","Nunito Sans")
+	.attr("y", 20)
+	.style('opacity',0)
+	.transition()
+	.delay(12600)
+	.style('opacity',1)
+
+
+
+	select5gg.append('text')
+	.text("Yukon River 8 Hour Rests")
+	.attr("x", scalePatternX(446200)+100)
+.style("font-weight", 600)
+		.style("font-size", 11)
+	.style("font-family","Nunito Sans")
+	.attr("y", 20)
+	.style('opacity',0)
+	.transition()
+	.delay(9000)
+	.style('opacity',1)
+
+
+	select5gg.append('text')
+	.text("Climbing the Alaska Range")
+	.attr("x", scalePatternX(59820)+60)
+	.style("font-weight", 600)
+		.style("font-size", 11)
+	.style("font-family","Nunito Sans")
+	.attr("y", 20)
+	.style('opacity',0)
+	.transition()
+	.delay(1000)
+	.style('opacity',1)
+
+
+
+	select5gg.append('text')
+	.text("Nome Finish")
+	.attr("x", scalePatternX(833820)+120)
+.style("font-weight", 600)
+		.style("font-size", 11)
+
+	.style("font-family","Nunito Sans")
+	.attr("y", 20)
+	.style('opacity',0)
+	.transition()
+	.delay(17000)
+	.style('opacity',1)
+
+
+select5gg.append('text')
+	.text("Iditarod Ghost Town")
+	.attr("x", scalePatternX(200000)+186)
+	.style("font-weight", 600)
+		.style("font-size", 11)
+	.style("font-family","Nunito Sans")
+	.attr("y", 20)
+	.style('opacity',0)
+	.transition()
+	.delay(7800)
+	.style('opacity',1)
+
+
+
+
 
 
 function executePattern (x1, x2, action, delayTime) {
@@ -1645,12 +1784,15 @@ function executePattern (x1, x2, action, delayTime) {
 	    .attr("y1", (d,i)=>i*barGap)      // y position of the first end of the line
     .attr("y2", (d,i)=>i*barGap)
 .attr('transform', 'translate(0,30)rotate(0)')
+// .attr('stroke-linecap', 'round')
+// .attr('stroke-linejoin', 'bevel')
+// .attr('stroke-miterlimit', 4)
 
 
 	.attr("x1", (d,i)=>scalePatternX(d[x1])+50  )   // x position of the first end of the line
     .attr("x2", (d,i)=>scalePatternX(d[x2])+50 )   // x position of the second end of the line
 	    .transition()
-    .delay(delayTime)
+    .delay(function(d,i){return delayTime+(i*3)})
     // .delay((d,i)=>i*200)
 .ease(d3.easeCircle)
 
@@ -1672,7 +1814,7 @@ function executePattern (x1, x2, action, delayTime) {
 
 var patternDelay = 400;
 
-function executeVis5 () {
+
 
 	// executePattern(1139220,1140020, "rest", 20);
 
@@ -1736,6 +1878,7 @@ executePattern('restTime_Safety', 'enRoute_Nome', "run", patternDelay*42);
     .attr("x2", (d,i)=>50)     // x position of the second end of the line
     .attr("y2", (d,i)=>i*barGap)
 .attr('transform', 'translate(0,30)rotate(0)')
+.style('opacity', .8)
 
 
     .transition()
@@ -1786,8 +1929,15 @@ vis5svg
   	.style("font-size", "20")
 			   	.style("font-weight", "700")
 
-}
+})
 
+
+
+
+
+
+
+};
 
 
 var visCont = new ScrollMagic.Controller();
@@ -1799,10 +1949,6 @@ var visCont = new ScrollMagic.Controller();
 	// .setClassToggle("#bars", "fade")
 		.on("start", function () {
 				executeVis5()});
-
-
-
-});
 
 
 var visCont2 = new ScrollMagic.Controller();

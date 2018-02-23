@@ -155,12 +155,22 @@ border: red dashed;
 
 .lineStyle {
 
-stroke: red;                           
-stroke-width: 2;
-
+/*stroke: darkgray;                           */
+stroke-width: 1;
+fill: none;
+transition: ease-in .2s;
 
 }
 
+
+.lineStyleSm {
+
+/*stroke: darkgray;                           */
+stroke-width: 3;
+fill: none;
+transition: ease-in .2s;
+
+}
 
 /*#vis2
 {background-color: pink;}*/
@@ -260,6 +270,44 @@ f
 
 }
 
+
+
+
+#replay2{
+z-index: 99;
+
+background-color: black;
+color: whitesmoke;
+padding:.5%;
+    position: relative;
+ left: 47%;
+    top: 70%;
+    display: inline;
+/*    left:50%;
+    top: 70%;*/
+    border: solid lightgray 1px;
+    border-radius: 7px;
+    font-style: italic;
+      font-family: "Nunito Sans", sans-serif;
+font-size: 1rem;
+opacity: 0;
+
+animation: butt;
+    animation-duration: 1s;
+    animation-delay: 12s;
+animation-fill-mode: forwards;
+transition: ease .2s;
+
+}
+
+#replay2:hover {
+
+    padding:.9%;
+font-size: 1.1rem;
+    border: solid darkgray 1.1px;
+f
+
+}
 @keyframes butt {
 
 from{opacity: 0;}
