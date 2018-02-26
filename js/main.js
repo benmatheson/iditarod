@@ -10,8 +10,54 @@ const margin = {
 
 
 }
+        
 
+var pod =`%c     ..............................................................................      
+                                                          .                              
+   .                          ,,,(*                     *#*.,                            
+   .                         ,    ./.                  (*    .,                          
+   .                        .       ,.                ,.                                 
+   .                                 ..              .   . ..                            
+   .                         .,,..,.  ,             ..  .,,,**,.                         
+   .      ,##(#, /######. ,###%//######,  *#/    (######*,,#######,  /#####(.            
+   .       .##/  /#*  .##, .##,,.,/##,  ./###(.  (#(. /##*##/,..,##/ /#/  .##*           
+   .       .##/  /#*   (#* .##,.,,/##, ./##*##(,,#######/,##*,...##( /#/   ##*           
+   .      .*##(. /#(**##( .*##/,,.*##*,/#######(,###((/*..(##(**###. /#(**(#(.           
+   .      .////, ,////*.  ,//((/***((**((/*/*/((/(((//(((////(#(/,   ,////*              
+   .                        .,//////***////(//////////(((((///, .                        
+   .                         /(##(///####((##,/(#######%%#####(.                         
+   .                      .,(#%#//%%%%#/,*/#%,,%%##(//%#%%%#(%%%#/.                      
+   .                   .%&%%&#%%%%&%(...... .#*.*,,/##&%&&&&%&&&&%*                    
+   .                   /&&&&&&&%%&%#%#.               ,(#%&&&&&&&&&.                   
+   .                   (%&&&&&&&%%(((.                  *(#%%&&&&&&&&*                   
+   .                  ,%&&&&&%&(                        /%#%%&&&&&&/                   
+   .                  *%&&&&&&%(.                          ./%%&%%%%&*                   
+   .                  *%&/*.    //(#,              .(/**.      ,#%&/                   
+   .                  *%%(.       ((..(.           ./%,./#.       *%&/                   
+   .                  (.          ,,*..          .,#((,         .%                   
+   .                 *%&,                                         ,%                   
+   .                 (&%*                                         .#%%.                  
+   .                ,%%%,                                         ,#%%.                  
+   .                .%##                                           ..,                   
+   .                .%%/                                             *                   
+   .                 (%*                                            ./                   
+   .                 *%%.                 .*##(*,                   ./                   
+   .                 ,%##,             *%&&&&&&&&%,                                      
+   .                  (&&%/.           /&%&&&&&%&%*                                      
+   .                  *#%#.            .#&&&&&&&&*                                       
+   .                  *%%#,             .,(%&&%(/,    .                                  
+   .                  (&&%*             *##(%%##(, .**                                   
+   .                  /%&&(                .**/**#*,*,                  .    ,,          
+   .                  /%&                ...,....*,                 .#%. ,(,           
+   .                  .%%&%,                    ....                 //,%.**             
+   . */               ,#(#%/                                      ,#/  ,#. .(*           
+   . ,((,(/(/*//(/((  /%**.                                      .,     ,    .,          
+   . ....... .......  *#.                                               .                
+     ..............................................................................  ` ;                                                                                    
+console.log("Check out our daily podcast *Iditapod* during the race.")
+	console.log(" KNOM and Alaska Public Media will have daily stories and interviews from the Iditarod Trail. Search your podcast app for 'Iditapod' and enjoy!");
 
+console.log(pod, "font-family:monospace; color: #0000ff");
 
 
 function executeVis1 () {
@@ -28,9 +74,9 @@ function executeVis1 () {
 //18.52
 //way too fast at 29
 let step =1;
-console.log("EDTUETINGINETEN VIS @!1");
+// console.log("EDTUETINGINETEN VIS @!1");
 
-var start = setInterval(cycleTime, 37);
+// var start = setInterval(cycleTime, 37);
 
 
 
@@ -105,8 +151,8 @@ var vis1gEnter=vis1g
 	.enter()
 	.append("g");
 
-	console.log("MMYG GRUP");
-console.log(vis1gEnter);
+// 	console.log("MMYG GRUP");
+// console.log(vis1gEnter);
 	
 var circ = vis1gEnter
 
@@ -243,7 +289,7 @@ var text1 = vis1svg.append("text")
 
 
 var text2 = vis1svg.append("text")
-	.attr("x", 100)
+	.attr("x", 97)
 	.style("font-family", "Nunito Sans")
 	.style("font-size", "11")
 	.style("text-align", "right")
@@ -288,7 +334,7 @@ var text5 = vis1svg.append("text")
 	.style("text-decoration", "underline")
 	.style("text-align", "right")
 	.style("font-weight", 600)
-	  .attr("y", 10)
+	  .attr("y", 8)
 	  	  
 
 	  .text("Race Finish Time")
@@ -413,8 +459,8 @@ var vis2svg = d3.select('#vis2')
 
 // console.log(vis2svg);
 
-console.log("making teh sbg");
-console.log(height-margin.top-margin.bottom-400)
+// console.log("making teh sbg");
+// console.log(height-margin.top-margin.bottom-400)
 // 
 
 
@@ -1430,7 +1476,7 @@ return Number.parseFloat(er).toFixed(2)
                   // tooltip1(innerHTML)= html1;
 
                   	// console.log("d3.select(this).attr("")");
-                  	console.log(d3.select(this).attr("cx"));
+                  	// console.log(d3.select(this).attr("cx"));
 
 
                   	d3.select(this).attr("r", 12);
@@ -1465,14 +1511,14 @@ return Number.parseFloat(er).toFixed(2)
       //                 .style("opacity", .9); // started as 0!
 
 
-console.log("were in!!!");
-console.log("the XXXXX"+d3.select(this).attr("cx"));
+// console.log("were in!!!");
+// console.log("the XXXXX"+d3.select(this).attr("cx"));
 
-console.log("the WYYYYY"+d3.select(this).attr("cy"));
-// console.log(tooltip1);
+// console.log("the WYYYYY"+d3.select(this).attr("cy"));
+// // console.log(tooltip1);
 
-console.log("THMLT");
-console.log(html1);
+// console.log("THMLT");
+// console.log(html1);
 
 
 
@@ -1501,7 +1547,7 @@ console.log(html1);
 // don't care about position!
 
 
-console.log("were out!!!")
+// console.log("were out!!!")
 
               };
 
@@ -1634,7 +1680,7 @@ d3.select("#vis5 svg").remove();
 const vis5svg = d3.select('#vis5')
 	.append('svg')
 	.attr("width", width-margin.top-margin.bottom)
-	.attr("height", height-margin.top-margin.bottom)
+	.attr("height", 800)
 
 
 const scalePatternX = d3.scaleLinear().domain([0,1050000]).range([0, width-margin.left-margin.right-250]);
@@ -1687,7 +1733,7 @@ select5gg.append('text')
 	.attr("y", 20)
 	.style('opacity',0)
 	.transition()
-	.delay(6000)
+	.delay(5000)
 	.style('opacity',1)
 
 	select5gg.append('text')
@@ -1738,7 +1784,20 @@ select5gg.append('text')
 	.attr("y", 20)
 	.style('opacity',0)
 	.transition()
-	.delay(1000)
+	.delay(1400)
+	.style('opacity',1)
+
+
+select5gg.append('text')
+	.text("Start")
+	.attr("x", scalePatternX(2000)+75)
+	.style("font-weight", 600)
+		.style("font-size", 11)
+	.style("font-family","Nunito Sans")
+	.attr("y", 20)
+	.style('opacity',0)
+	.transition()
+	.delay(100)
 	.style('opacity',1)
 
 
