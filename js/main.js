@@ -245,7 +245,7 @@ circ.transition()
 		.attr("x2", 150)
           .style("stroke", 'gray')
           .style("stroke-width", .5)
-          .style("stroke-dasharray", "1, 3")
+          // .style("stroke-dasharray", "1, 3")
 
 
 
@@ -1710,7 +1710,7 @@ var select5 = vis5svg.selectAll('line')
 	var select5gg = vis5svg.append('g');
 
 	var barWidth = 9;
-	var barGap =11;
+	var barGap =13;
 
 
 select5g.append('text')
@@ -1835,6 +1835,10 @@ select5gg.append('text')
 
 function executePattern (x1, x2, action, delayTime) {
 
+	const cols = {400: "#0570b0", 800: "#3690c0", 1200:"#74a9cf",1600:"#a6bddb", 2000:"#d0d1e6", 2400:"#ece7f2", 2800:"#fff7fb"};
+
+
+
 	select5g.append('line')
 	// .style("stroke", "green")  // colour the line
 	.style("stroke-width", function() { if (action=="rest") {return barWidth-5} else {return barWidth+1 }})  // colour the line
@@ -1851,7 +1855,7 @@ function executePattern (x1, x2, action, delayTime) {
 	.attr("x1", (d,i)=>scalePatternX(d[x1])+50  )   // x position of the first end of the line
     .attr("x2", (d,i)=>scalePatternX(d[x2])+50 )   // x position of the second end of the line
 	    .transition()
-    .delay(function(d,i){return delayTime+(i*3)})
+    .delay(function(d,i){return d[x1]/30})
     // .delay((d,i)=>i*200)
 .ease(d3.easeCircle)
 
@@ -1863,6 +1867,8 @@ function executePattern (x1, x2, action, delayTime) {
     	// .attr("stroke-linecap", "round")
 
 	.style("stroke", function() {if (action =="rest") {return restColor} else {return runColor }}) 
+	// .style("stroke", function() {if (cols[delayTime] != null) {return cols[delayTime] } else {return "green"}}) 
+	// .style("stroke", function(d,i){return `rgba(${Math.floor(1*delayTime)},10,${Math.floor(2*delayTime)},99)`}) 
 
 
 
